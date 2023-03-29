@@ -14,8 +14,9 @@ class _videoList_screenState extends State<videoList_screen> {
 
   video_provider? videoProviderTrue;
   video_provider? videoProviderFalse;
-  @override
 
+
+  @override
   Widget build(BuildContext context) {
 
     videoProviderTrue = Provider.of<video_provider>(context,listen: true);
@@ -30,7 +31,9 @@ class _videoList_screenState extends State<videoList_screen> {
           itemBuilder: (context, index) {
             return InkWell(
               onTap: () {
-                videoProviderFalse!.initVideo(videoProviderTrue!.VideoList[index]);
+
+                videoProviderTrue!.changeIndex(index);
+                videoProviderFalse!.initVideo();
                 Navigator.pushNamed(context, 'video',arguments: index);
               },
               child: Container(

@@ -15,12 +15,9 @@ class _video_screenState extends State<video_screen> {
 
   @override
 
-  void initState() {
-    super.initState();
-  }
   Widget build(BuildContext context) {
 
-    int i = ModalRoute.of(context)!.settings.arguments as int;
+    // int i = ModalRoute.of(context)!.settings.arguments as int;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(

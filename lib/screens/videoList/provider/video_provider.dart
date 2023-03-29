@@ -7,8 +7,8 @@ class video_provider extends ChangeNotifier {
   List VideoList = [
     "assets/videos/1.mp4",
     "assets/videos/2.mp4",
-    "assets/videos/3.mp4",
     "assets/videos/4.mp4",
+    "assets/videos/3.mp4",
   ];
 
   List images = [
@@ -20,16 +20,22 @@ class video_provider extends ChangeNotifier {
 
   ChewieController? chewieController;
   VideoPlayerController? videoPlayerController;
-  void initVideo(videoList) {
+  int selectedVideoIndex = 0;
 
-    videoPlayerController = VideoPlayerController.asset("$VideoList");
+  void initVideo() {
 
+    videoPlayerController = VideoPlayerController.asset("${VideoList[selectedVideoIndex]}");
     videoPlayerController?.initialize();
-
 
     chewieController = ChewieController(
         videoPlayerController: videoPlayerController!,
         autoPlay: false,
         looping: false);
+  }
+
+  void changeIndex(int index)
+  {
+    selectedVideoIndex = index;
+    notifyListeners();
   }
 }
